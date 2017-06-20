@@ -3,19 +3,19 @@ var connectionString = 'http://localhost:5432/grocery_store'
 var pgp = require('pg-promise')()
 var db = pgp(connectionString)
 
-var allItems = `
+var ALL_ITEMS = `
 SELECT
 * FROM
 grocery_items`
 
-var itemsInSection = `
+var ITEMS_IN_SECTION = `
 SELECT
-* FROM
+NAME, id FROM
 grocery_items
 WHERE
 section = $1`
 
- var cheapItems = `
+ var CHEAP_ITEMS = `
  SELECT
  * FROM
  grocery_items
@@ -23,16 +23,16 @@ section = $1`
  Price < 10 ORDER
  BY
  Price
- DESC`
+ ASC`
 
-var countItemsInSection = `
+var COUNT_ITEMS_IN_SECTION = `
 SELECT COUNT(section)
 FROM
 grocery_items
 WHERE
-id = $1`
+section = $1`
 
-var mostRecentOrder = `
+var MOST_RECENT_ORDER = `
 SELECT id, log_timestamp
 FROM
 orders
@@ -40,7 +40,7 @@ ORDER BY
 log_timestamp
 LIMIT 10 `
 
-var lastShopperName = `
+var LAST_SHOPPER_NAME = `
 SELECT x.name
 FROM
 shoppers x
@@ -49,7 +49,7 @@ orders o
 ON x.id = o.shoppers_id
 LIMIT 1`
 
-var orderTotal = `
+var ORDER_TOTAL = `
 SELECT shoppers_id,SUM(price)
 FROM
 orders x
@@ -60,27 +60,37 @@ x.grocery_items_id =o.id
 WHERE shoppers_id = $1
 GROUP BY shoppers_id `
 
-var checkout = {
-  cheapItems:() function {
+
+  function cheapItems() {
       return db.many(CHEAP_ITEMS,[])
-  },
-  allItems:() function {
+  };
+  function allItems() {
     return db.many(ALL_ITEMS,[])
-  },
-  itemsInSection:(id) function {
+  };
+  function itemsInSection(id) {
     return db.one(ITEMS_IN_SECTION,[id])
-  },
-  countItemsInSection :(id) function {
-    return db.one(COUNT_ITEMS_IN_SECTION,[id])
-  },
-  mostRecentOrder: () function {
-    return db.many(mostRecentOrder,[])
-  },
-  lastShopperName:() function {
+  };
+   function countItemsInSection(section) {
+    return db.one(COUNT_ITEMS_IN_SECTION,[section])
+  };
+   function mostRecentOrder() {
+    return db.one(MOST_RECENT_ORDER,[])
+  };
+  function lastShopperName() {
     return db.one(LAST_SHOPPER_NAME,[])
-  },
-  orderTotal:(id) function {
+  };
+  function orderTotal(id) {
     return db.one(ORDER_TOTAL,[id])
-  }
-}
-module.exports = checkout
+  };
+
+// allItems().then(console.log)
+
+module.exports = {
+  cheapItems,
+  allItems,
+  itemsInSection,
+  countItemsInSection,
+  mostRecentOrder,
+  lastShopperName,
+  orderTotal
+} ;
