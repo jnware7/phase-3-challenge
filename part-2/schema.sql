@@ -6,12 +6,13 @@ CREATE TABLE shoppers(
 CREATE TABLE orders(
   id SERIAL PRIMARY KEY,
   shoppers_id INTEGER ,
-  grocery_items_id INTEGER
+  grocery_items_id INTEGER,
+  log_timestamp TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
 CREATE TABLE grocery_items(
   id SERIAL PRIMARY KEY,
   name VARCHAR,
-  price VARCHAR,
+  price DECIMAL,
   section VARCHAR
 );
 
@@ -34,9 +35,3 @@ VALUES (3,41);
 COPY grocery_items(name,price,section) FROM
 '/Users/Mr.Ware/Desktop/LGProjects/phase-3-challenge/part-2/grocery.csv'
 DELIMITER',' CSV HEADER;
-
-
--- INSERT INTO orders (shopper_id, order_id)
--- VALUES (1,1);
--- VALUES (2,2);
--- VALUES (3,3);
