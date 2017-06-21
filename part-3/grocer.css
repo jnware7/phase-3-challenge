@@ -1,0 +1,176 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: "Lucida Grande", "Helvetica", sans-serif;
+}
+#modCart{
+  display:flex;
+  background-color: white;
+  height: 400px;
+  width: 600px;
+  position:absolute;
+  top: 30%;
+  left: 30%;
+  flex-direction:column;
+  z-index: 2;
+  box-shadow: 0 7px 7px #777;
+}
+
+#modClose{
+  color:white;
+
+}
+#modTitle{
+  color:black;
+  justify-content: flex-start;
+
+}
+#modClear{
+  color:white;
+justify-content: flex-end;
+border:black 1px;
+}
+#modTotal h2{
+  color:black;
+}
+#subTotal{
+  color:black;
+  font-size: 1.5em;
+}
+#close{
+    color:black;
+    font-size: 2em;
+    border:none;
+    background-color: Transparent;
+}
+#display{
+  background-color: white;
+  width:600px;
+  height:240px;
+  justify-content: space-between
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-between;
+    margin-left: 40px;
+}
+
+.row2{
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  width: 85%;
+  margin-left: 40px;
+}
+
+/* LAYOUT UTILS */
+.flex {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row-between {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.flex-full {
+  flex: 1;
+}
+
+/* HEADER */
+.site-header {
+  flex: 0;
+  padding: 4px 0px;
+  border-bottom: 2px solid #ccc;
+  background-color: #eee;
+}
+
+.site-header > *:first-child {
+  margin-left: 12px;
+}
+
+.site-header > *:last-child {
+  margin-right: 12px;
+}
+
+.site-header h1 {
+  font-size: 24px;
+}
+
+.site-header button {
+  font-size: 20px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  flex: 0 0 20%;
+  border-right: solid 1px #ccc;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar h4 {
+  background-color: #ddd;
+  border-bottom: 1px solid #ccc;
+  margin: 0;
+  padding: 4px;
+}
+
+.sidebar li {
+  padding: 4px;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 4px 0;
+}
+
+.content * {
+  padding: 0 12px;
+}
+
+/* ITEM LIST */
+.item-section {
+  list-style-type: none;
+  margin: 32px 0 0;
+  padding: 0;
+}
+
+.item-section h3 {
+  font-weight: normal;
+  font-style: italic;
+}
+
+.item {
+  margin-bottom: 8px;
+}
+
+.item:hover {
+  background-color: #eee;
+}
+
+.item > * {
+  font-size: 18px;
+  padding: 8px;
+}
+
+.item-name {
+  flex: 1;
+}
+
+.item-price {
+  flex: 0;
+}
