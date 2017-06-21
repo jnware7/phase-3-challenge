@@ -4,7 +4,7 @@ This is the challenge for getting into phase 3. There are 3 parts to the challen
 
 To get started, create a new repository called phase-3-challenge. Do all of your work in this repo and submit it as your solution.
 
-#Skills covered:
+# Skills covered:
 
 Programming
 Programming in JS
@@ -16,12 +16,13 @@ The Browser
 SQL
 Each requirement has a point value. A fully complete requirement gets full points; partially complete requirements get partial points; incomplete requirements get no points. Completeness is determined by calculating points earned divided by total points available.
 
-#General Requirements
+# General Requirements
 
  - [ ]  10: Solution is in a public repository called phase-3-challenge
  - [ ]  10: Solution repository has 3 folders: part-1, part-2, and part-3.
  - [ ]  20: Git history shows frequent commits.
-#Part 1: Simple web app
+ 
+# Part 1: Simple web app
 
 Build a very basic web app to perform basic calculations on numbers supplied in the URL.
 
@@ -57,7 +58,8 @@ response: 18
  - [ ]  20: GET requests to the /add route add the two numbers provided in the query string variables a and b and respond with the result
  - [ ]  20: GET requests to the /subtract route subtract the value of the query string variable b from the query string variable a and respond with the result
  - [ ]  20: GET requests to the /double/:number route doubles the number provided in the URL (in place of :number) and responds with the result
-#Part 2: Database for grocery store & tests
+ 
+# Part 2: Database for grocery store & tests
 
 Build a small PostgreSQL database for a grocery store, then connect and write queries using Node.js. Same idea as in part 3, but focused on the database side.
 
@@ -69,7 +71,7 @@ Use the provided grocery item data to seed your grocery items table, and write s
 
 Then, use pg-promise and Mocha + Chai to write and test database queries.
 
-#Requirements
+# Requirements
 
  - [ ]  10: All files are stored under the part-2/ folder
  - [ ]  10: Database schema (all CREATE TABLE statements) is defined in a file schema.sql
@@ -104,7 +106,7 @@ Write tests with Mocha + Chai in database_test.js that assert:
 - [ ] 20: A call to itemsInSection("bulk") returns the items "Flour", "Pasta", and "Rice"
 - [ ] 20: A call to cheapItems() returns the item "Fish" as the first item and "Honey" as the last item
 - [ ] 20: A call to countItemsInSection("packaged") returns 5
-#Part 3: Web interface for grocery store
+# Part 3: Web interface for grocery store
 
 Create a front-end only site for an online grocery store where users can choose from a list of items and add them to a cart.
 
@@ -118,7 +120,7 @@ Clicking on the "Cart" button opens the cart modal.
 
 modal
 
-#Requirements
+# Requirements
 
 - [ ] 10: All files are stored under the part-3/ folder
 - [ ] 20: No third party CSS or JS libraries are used (all code must be written from scratch)
